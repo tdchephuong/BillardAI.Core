@@ -27,5 +27,7 @@ def movefile(pathFile):
     print("file has moved to : " + "best_" + date + ".pt")
 
     
-def zipdir(output_filename, zipFolder):
+def zipdir(zipFolder):
+    date = datetime.datetime.now().strftime("%m%d%Y")
+    output_filename = zipFolder + "label_" + date + ".zip"
     shutil.make_archive(output_filename, 'zip', zipFolder)
