@@ -14,7 +14,7 @@ def initialize(source):
         return
 
     shutil.unpack_archive(source, "/content/Dataset")
-    print("File has Unzipped." + source)
+    print("File has Unzipped into directory [Dataset]." + source)
 
 
 if __name__ == '__main__':
