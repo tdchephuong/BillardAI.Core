@@ -25,3 +25,7 @@ def movefile(pathFile):
         
     shutil.move(pathFile, dest_file)
     print("file has moved to : " + "best_" + date + ".pt")
+
+    
+def zipdir(output_filename, zipFolder):
+    shutil.make_archive(output_filename, 'zip', zipFolder)
