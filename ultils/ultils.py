@@ -2,9 +2,12 @@ import shutil
 import datetime
 import os
 
-def copyfile(pathFile):
+def copyfile(pathFile, dest_file = ''):
     date = datetime.datetime.now().strftime("%m%d%Y")
-    dest_file = "/content/drive/MyDrive/BillardAI/Models/best_" + date + ".pt"
+
+    if dest_file == '': 
+        dest_file = "/content/drive/MyDrive/BillardAI/Models/best_" + date + ".pt"
+
     exist = os.path.isfile(dest_file)
 
     if exist:
