@@ -1,12 +1,23 @@
 import shutil
 import datetime
 import os
+import logging
 
-def copyfile(pathFile, dest_file = ''):
-    date = datetime.datetime.now().strftime("%m%d%Y")
+def copy_file_to_folder(pathFile, dest_path):
+    date = datetime.datetime.now().strftime("%m%d%Y_%h%M%s")
+    exist = os.path.isfile(pathFile)
 
-    if dest_file == '': 
-        dest_file = "/content/drive/MyDrive/BillardAI/Models/best_" + date + ".pt"
+    if exist:
+        logging.exception("file has exist. : " + pathFile)
+        return
+        
+    shutil.copyfile(pathFile, dest_path)
+    print("file has copied to : " + dest_path)
+
+def backup_file(pathFile):
+    date = datetime.datetime.now().strftime("%m%d%Y_%h%M%s")
+
+    dest_file = "/content/drive/MyDrive/BillardAI/Models/best_" + date + ".pt"
 
     exist = os.path.isfile(dest_file)
 
