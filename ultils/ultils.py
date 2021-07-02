@@ -50,6 +50,10 @@ def log_error(message):
     prefix = colorstr('red', 'bold', 'Error:')
     print(f"{prefix} {message}")
 
+def log_message(message):
+    prefix = colorstr('green', 'bold', 'Message:')
+    print(f"{prefix} {message}")
+
 def colorstr(*input):
     *args, string = input if len(input) > 1 else ('blue', 'bold', input[0])  # color arguments, string
     colors = {'black': '\033[30m',  # basic colors
@@ -72,3 +76,9 @@ def colorstr(*input):
               'bold': '\033[1m',
               'underline': '\033[4m'}
     return ''.join(colors[x] for x in args) + f'{string}' + colors['end']
+
+def mkdir(path):
+    if not os.path.isdir(path):
+        os.mkdir(path)
+
+    log_error(f"The path {path} has existed !" )

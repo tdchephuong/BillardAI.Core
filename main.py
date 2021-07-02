@@ -2,19 +2,23 @@ import argparse
 import os
 import shutil
 from google.colab import drive
-
+from ultils.ultils import mkdir, log_error, log_message
 
 def initialize(source):
     # mount drive folder
     drive.mount('/content/drive')
-    print("Drive has mounted.")
+    log_message("Drive has mounted.")
+
+    # make dir Videos
+    mkdir('/content/Videos')
+
     # unzip dataset
     if not os.path.isfile(source):
-        print("the source file not exist !!!")
+        log_error("the source file not exist !!!")
         return
 
     shutil.unpack_archive(source, "/content/Dataset")
-    print("File has Unzipped into directory [Dataset]." + source)
+    log_message("File has Unzipped into directory [Dataset]." + source)
 
 
 if __name__ == '__main__':
