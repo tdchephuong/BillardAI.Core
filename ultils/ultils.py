@@ -80,5 +80,6 @@ def colorstr(*input):
 def mkdir(path):
     if not os.path.isdir(path):
         os.mkdir(path)
+        return
 
     log_error(f"The path {path} has existed !" )
