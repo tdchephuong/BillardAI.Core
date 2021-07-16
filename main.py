@@ -45,6 +45,7 @@ if __name__ == '__main__':
     parser.add_argument('--source', type=str, help='/content/drive/MyDrive/BillardAI/<file>.zip, the zip file google drive')
     opt = parser.parse_args()
     print(opt)
+    local = '0'
     try:
         from decouple import config
 
