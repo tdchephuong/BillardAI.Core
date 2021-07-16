@@ -46,9 +46,10 @@ def zipdir(zipFolder):
     output_filename = zipFolder + "label_" + date + ".zip"
     shutil.make_archive(output_filename, 'zip', zipFolder)
 
-def log_error(message):
+def log_error(message, *arguments):
     prefix = colorstr('red', 'bold', 'Error:')
-    print(f"{prefix} {message}")
+    print(f"{prefix} {message}", arguments)
+
 
 def log_message(message):
     prefix = colorstr('green', 'bold', 'Message:')
