@@ -46,6 +46,14 @@ def zipdir(zipFolder):
     output_filename = zipFolder + "label_" + date + ".zip"
     shutil.make_archive(output_filename, 'zip', zipFolder)
 
+def unzip(zipFile):
+    # unzip dataset
+    if not os.path.isfile(zipFile):
+        log_error("The zip file not found !!!")
+        return
+    shutil.unpack_archive(zipFile, "/content/Dataset")
+    log_message("The file has unzip.")
+
 def log_error(message, *arguments):
     prefix = colorstr('red', 'bold', 'Error:')
     print(f"{prefix} {message}", arguments)
