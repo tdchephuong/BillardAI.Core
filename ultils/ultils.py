@@ -50,9 +50,10 @@ def unzip(zipFile):
     # unzip dataset
     if not os.path.isfile(zipFile):
         log_error("The zip file not found !!!")
-        return
+        return 0
     shutil.unpack_archive(zipFile, "/content/Dataset")
     log_message("The file has unzip.")
+    return 1
 
 def log_error(message, *arguments):
     prefix = colorstr('red', 'bold', 'Error:')
