@@ -23,10 +23,11 @@ def backup_file(pathFile):
 
     if exist:
         os.remove(dest_file)
-        print("file has removed : " + "best_" + date + ".pt")
+        log_message("file has removed : " + "best_" + date + ".pt")
+        return
         
     shutil.copyfile(pathFile, dest_file)
-    print("file has copied to : " + "best_" + date + ".pt")
+    log_message("file has copied to : " + "best_" + date + ".pt")
 
 def movefile(pathFile):
     date = datetime.datetime.now().strftime("%m%d%Y")
@@ -35,10 +36,11 @@ def movefile(pathFile):
 
     if exist:
         os.remove(dest_file)
-        print("file has removed : " + "best_" + date + ".pt")
+        log_message("file has removed : " + "best_" + date + ".pt")
+        return
         
     shutil.move(pathFile, dest_file)
-    print("file has moved to : " + "best_" + date + ".pt")
+    log_message("file has moved to : " + "best_" + date + ".pt")
 
     
 def zipdir(zipFolder):
@@ -90,6 +92,7 @@ def colorstr(*input):
 def mkdir(path):
     if not os.path.isdir(path):
         os.mkdir(path)
-        return
+        return 1
 
     log_error(f"The path {path} has existed !" )
+    return 0
