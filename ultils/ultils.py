@@ -4,11 +4,10 @@ import os
 import logging
 
 def copy_file_to_folder(pathFile, dest_path):
-    date = datetime.datetime.now().strftime("%m%d%Y_%h%M%s")
     exist = os.path.isfile(pathFile)
 
-    if exist:
-        log_error("file has exist." + pathFile)
+    if not exist:
+        log_error("file not exist." + pathFile)
         return
         
     shutil.copyfile(pathFile, dest_path)
